@@ -1,7 +1,11 @@
 import { Router } from "express";
+import routerAuth from "./authRouter.js";
+import userRouter from "./userRouter.js";
 
 
-let routerIndex = Router()
+const indexRouter = Router();
 
+indexRouter.use("/users", userRouter);
+indexRouter.use("/auth", routerAuth);
 
-export default routerIndex
+export default  indexRouter
