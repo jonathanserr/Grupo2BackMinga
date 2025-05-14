@@ -10,7 +10,10 @@
     "dbUsers": "node ./models/data/dataUsers.js",
     "dbAuthors": "node ./models/data/dataAuthors.js",
     "dbCategories": "node ./models/data/dataCategories.js",
-    "dbCompanies": "node ./models/data/dataCompanies.js"
+    "dbCompanies": "node ./models/data/dataCompanies.js",
+    "dbMangas": "node ./models/data/dataMangas.js",
+    "dbComents": "node ./models/data/dataComments.js",
+    "dbReactions": "node ./models/data/dataReactions.js"
 
   },
   "repository": {

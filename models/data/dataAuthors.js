@@ -31,27 +31,27 @@ const authors = [
         date: "1992-03-10"
     },
     {
-        name: "Tomás Silencio",
+        name: "Eric",
         photo: "https://randomuser.me/api/portraits/men/13.jpg",
-        user_id: "68221069b1ee15e4669d0c95", //tomas
+        user_id: "68221069b1ee15e4669d0c95", //eric
         active: true,
         city: "Bogotá",
         country: "Colombia",
         date: "1988-12-01"
     },
     {
-        name: "Valentina Sueño",
+        name: "Lucas",
         photo: "https://randomuser.me/api/portraits/women/14.jpg",
-        user_id: "68221069b1ee15e4669d0c96", //valentina
+        user_id: "68221069b1ee15e4669d0c96", //lucas
         active: false,
         city: "Santiago",
         country: "Chile",
         date: "1995-07-22"
     },
     {
-        name: "Gabriel Rayo",
+        name: "Alejandro",
         photo: "https://randomuser.me/api/portraits/men/15.jpg",
-        user_id: "68221069b1ee15e4669d0c97", //gabriel
+        user_id: "68221069b1ee15e4669d0c97", //alejandro
         active: true,
         city: "Montevideo",
         country: "Uruguay",
