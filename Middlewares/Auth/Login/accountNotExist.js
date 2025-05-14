@@ -8,6 +8,7 @@ export default async (req,res,next) =>{
                 email: account.email,
                 password: account.password,
             }
+
             return next()
         }
         return res.status(400).json({
