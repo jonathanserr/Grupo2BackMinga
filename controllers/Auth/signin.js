@@ -1,4 +1,3 @@
-
 import user from "../../models/User.js"
 
 export default async (req,res,next) => {
