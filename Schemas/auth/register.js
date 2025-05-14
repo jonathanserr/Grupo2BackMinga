@@ -1,21 +1,6 @@
 import Joi from "joi";
 
 const schema = Joi.object({
-    name: Joi.string()
-    .pattern(/^[A-Za-z]+$/)
-    .required()
-    .messages({
-        'string.pattern.base': 'The name can only contain letters, no numbers or symbols',
-        'string.base': 'The name cannot contain numbers or symbols'
-    }),
-
-    lastname: Joi.string()
-    .pattern(/^[A-Za-z]+$/)
-    .required()
-    .messages({
-        'string.pattern.base': 'The lastname can only contain letters, no numbers or symbols',
-        'string.base': 'The lastname cannot contain numbers or symbols'
-    }),
 
     email: Joi.string().required().email().messages({
         "string.base": 'Do not use numbers, this should be an email',
@@ -31,9 +16,8 @@ const schema = Joi.object({
         'string.base': 'The password must be a text'
     }),
 
-    urlPhoto: Joi.string().required(),
-    
-    country: Joi.string().required()
+    photo: Joi.string().required(),
+
 })
 
 export default schema;
