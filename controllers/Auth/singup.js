@@ -1,14 +1,18 @@
-import user from "../../models/User.js"
+import User from "../../models/User.js"
 
 
 const register  = async (req,res,next)=>{
     try {
         
-        res.send("Hola estas llamando al controller de registro")
-        //Probando ruta
+        let userInfo = req.body
+        console.log("hola");
+        let createUser = await User.create(userInfo)
+        return res.status(201).json({
+            response: createUser,
+            message : "User created succesfuly"
+        })   
         
     } catch (error) {
-        console.log(error)
         next(error)
     }
 }
