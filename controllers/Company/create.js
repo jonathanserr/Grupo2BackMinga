@@ -1,9 +1,11 @@
+import Company from "../../models/Company.js"   
 const createCompany = async (req,res,next)=>{
     try {
-        
-        let respuesta = "createCompany "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        let newCompany = await Company.create(req.body)
+        res.status(201).json({
+            success: true,
+            company: newCompany
+        })
     } catch (error) {
         next(error)
     }
