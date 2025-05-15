@@ -1,0 +1,12 @@
+const UpdateAuthor = async (req,res,next)=>{
+    try {
+        
+        let respuesta = "Update autores"
+        //Maqueta para luego implementar realmente
+        res.send(respuesta)
+    } catch (error) {
+        next(error)
+    }
+}
+
+export default UpdateAuthor
