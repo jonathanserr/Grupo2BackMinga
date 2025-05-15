@@ -1,12 +1,19 @@
-const UpdateAuthor = async (req,res,next)=>{
+import Author from '../../models/Author.js'
+
+const updateAuthor = async (req, res, next) => {
     try {
-        
-        let respuesta = "Update autores"
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        let updatedAuthor = await Author.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        )
+        res.status(200).json({
+            success: true,
+            author: updatedAuthor
+        })
     } catch (error) {
         next(error)
     }
 }
 
-export default UpdateAuthor
+export default updateAuthor
