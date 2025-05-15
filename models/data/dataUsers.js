@@ -103,24 +103,24 @@ const users = [
   },
   {
     
-    email: "tomas.silencio@dimensionesonora.org",
-    password: "Tomas1234",
+    email: "Eric@dimensionesonora.org",
+    password: "Eric1234",
     photo: "https://randomuser.me/api/portraits/men/13.jpg",
     role: 0,
     online: false
   },
   {
 
-    email: "valentina.sueño@realidadparalela.net",
-    password: "Valentina1234",
+    email: "Lucas@realidadparalela.net",
+    password: "Lucas1234",
     photo: "https://randomuser.me/api/portraits/women/14.jpg",
     role: 0,
     online: false
   },
   {
   
-    email: "gabriel.rayo@cielosincolor.io",
-    password: "Gabriel1234",
+    email: "Alejandro@cielosincolor.io",
+    password: "Alejandro1234",
     photo: "https://randomuser.me/api/portraits/men/15.jpg",
     role: 0,
     online: false

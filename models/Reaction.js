@@ -7,7 +7,7 @@ const schema = new Schema({
     chapter_id: { type: Schema.Types.ObjectId, ref: 'chapters' },
     author_id: { type: Schema.Types.ObjectId, ref: 'authors' },
     company_id: { type: Schema.Types.ObjectId, ref: 'companies' },
-    reaction: { type: String, required: true }
+    reaction: { type: Number, required: true } // 1 👍, 2 👎, 3 😮, 4 😍
 }, {
     timestamps: true
 });

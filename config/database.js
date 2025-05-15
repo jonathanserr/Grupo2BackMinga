@@ -5,11 +5,11 @@ let url = process.env.URL_MONGO
 
 async function connectDB() {
     try{
-        await mongoose.connect(process.env.URL_MONGO)
+        await mongoose.connect(url)
         console.log("database connected");
         
     } catch (error){
-        
+        console.log(error)
     }
 }
 
