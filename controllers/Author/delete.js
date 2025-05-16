@@ -1,4 +1,4 @@
-import Author from "../../models/Author"
+import Author from "../../models/Author.js"
 
 const DeleteAuthor = async (req,res,next)=>{
     try {
