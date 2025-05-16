@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-const collection = 'reactions';
+let collection = 'reactions';
 
 const schema = Schema({
     manga_id: { type: Schema.Types.ObjectId, ref: 'mangas', required: true },
@@ -12,5 +12,5 @@ const schema = Schema({
     timestamps: true
 });
 
-const Reaction = model(collection, schema);
+let Reaction = model(collection, schema);
 export default Reaction;

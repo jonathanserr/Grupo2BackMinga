@@ -1,9 +1,12 @@
+import Reaction from "../../models/Reaction.js"
+
 const createReaction = async (req,res,next)=>{
     try {
-        
-        let respuesta = "createReaction "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        let create = await Reaction.create(req.body)
+        return res.status(201).json({
+            response: create,
+            message: "Comment created successfully"
+        })
     } catch (error) {
         next(error)
     }

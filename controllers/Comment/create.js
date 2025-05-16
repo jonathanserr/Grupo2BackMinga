@@ -1,9 +1,12 @@
+import Comment from "../../models/Comment.js"
+
 const createComment = async (req,res,next)=>{
     try {
-        
-        let respuesta = "createComment "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        let create = await Comment.create(req.body)
+        return res.status(201).json({
+            response: create,
+            message: "Comment created successfully"
+        })
     } catch (error) {
         next(error)
     }

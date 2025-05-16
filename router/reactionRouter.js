@@ -8,7 +8,7 @@ const  routerReaction = Router()
 
 routerReaction.post("/create", createReaction)
 routerReaction.get("/read", getReactions)
-routerReaction.delete("/delete", deleteReaction)
+routerReaction.delete("/delete/:id", deleteReaction)
 routerReaction.put("/update", updateReaction)
 
 export default routerReaction

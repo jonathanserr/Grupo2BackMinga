@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-const collection = 'companies';
+let collection = 'companies';
 
 const schema = Schema({
     name: { type: String, required: true },
@@ -13,5 +13,5 @@ const schema = Schema({
     timestamps: true
 });
 
-const Company = model(collection, schema);
+let Company = model(collection, schema);
 export default Company;

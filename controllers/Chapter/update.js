@@ -16,7 +16,7 @@ const UpdateChapters = async (req, res, next) => {
         );
         return res.status(200).json({
             response: update,
-            message: "Category updated successfully"
+            message: "Chapter updated successfully"
         })
     } catch (error) {
         next(error)

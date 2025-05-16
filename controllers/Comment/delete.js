@@ -1,9 +1,12 @@
+import Comment from "../../models/Comment.js"
+
 const DeleteComment = async (req,res,next)=>{
     try {
-        
-        let respuesta = "DeleteComment "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        let deleteCo = await Comment.deleteOne({_id:req.params.id})
+        return res.status(200).json({
+            response: deleteCo,
+            message: "Comment deleted successfully"
+        })
     } catch (error) {
         next(error)
     }

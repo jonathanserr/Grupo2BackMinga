@@ -9,7 +9,7 @@ const  routerComment = Router()
 
 routerComment.post("/create", createComment)
 routerComment.get("/read", getComments)
-routerComment.delete("/delete", deleteComment)
+routerComment.delete("/delete/:id", deleteComment)
 routerComment.put("/update", updateComment)
 
 

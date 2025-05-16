@@ -1,9 +1,18 @@
+import Reaction from "../../models/Reaction.js"
+
 const getReactions = async (req,res,next)=>{
     try {
-        
-        let respuesta = "getReactions "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        let {id}= req.query
+        let query = {}
+        if (id) {
+            query._id = id
+        }
+        let all = await Reaction.find(query)
+
+        return res.status(200).json({
+            response: all,
+            message: "Reaction fetched successfully"
+        })
     } catch (error) {
         next(error)
     }
