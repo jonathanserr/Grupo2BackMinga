@@ -1,9 +1,14 @@
-const DeleteCategory = async (req,res,next)=>{
+import Category from "../../models/Category.js";
+
+const DeleteCategory = async (req, res, next) => {
     try {
-        
-        let respuesta = "DeleteCategory "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        let deleteCategory = await Category.deleteOne(
+            { _id: req.body._id }
+        )
+        return res.status(200).json({
+            response: deleteCategory,
+            message: "Category deleted successfully"
+        }) 
     } catch (error) {
         next(error)
     }

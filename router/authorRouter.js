@@ -8,7 +8,7 @@ const routerAuth = Router()
 
 routerAuth.post("/create", createAuthor)
 routerAuth.get("/read", allAuthors)
-routerAuth.delete("/delete", deleteAuthor)
+routerAuth.delete("/delete/:id", deleteAuthor)
 routerAuth.put("/update", updateAuthor)
 
 export default routerAuth

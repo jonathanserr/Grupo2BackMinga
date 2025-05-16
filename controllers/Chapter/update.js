@@ -1,9 +1,23 @@
-const UpdateChapters = async (req,res,next)=>{
+import Chapter from "../../models/Chapter.js"
+
+const UpdateChapters = async (req, res, next) => {
     try {
-        
-        let respuesta = "UpdateChapters "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+        const { _id, ...updates } = req.body;
+        const info = {
+            ...(updates.title && { title: updates.title }),
+            ...(updates.cover_photo && { cover_photo: updates.cover_photo }),
+            ...(updates.pages && { pages: updates.pages }),
+            ...(updates.order && { order: updates.order })
+        };
+
+        const update = await Chapter.updateOne(
+            { _id },
+            { $set: info }
+        );
+        return res.status(200).json({
+            response: update,
+            message: "Category updated successfully"
+        })
     } catch (error) {
         next(error)
     }

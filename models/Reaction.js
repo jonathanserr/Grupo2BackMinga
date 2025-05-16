@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 const collection = 'reactions';
 
-const schema = new Schema({
+const schema = Schema({
     manga_id: { type: Schema.Types.ObjectId, ref: 'mangas', required: true },
     chapter_id: { type: Schema.Types.ObjectId, ref: 'chapters' },
     author_id: { type: Schema.Types.ObjectId, ref: 'authors' },

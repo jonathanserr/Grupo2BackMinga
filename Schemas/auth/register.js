@@ -1,13 +1,11 @@
-import Joi from "joi-oid";
+import joi from "joi-oid";
 
-const schema = Joi.object({
-
-    email: Joi.string().required().email().messages({
+const schema = joi.object({
+    email: joi.string().required().email().messages({
         "string.base": 'Do not use numbers, this should be an email',
         'string.email': 'It is text but not a valid email'
     }),
-
-    password: Joi.string()
+    password: joi.string()
     .required()
     .min(8)
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
@@ -16,7 +14,7 @@ const schema = Joi.object({
         'string.base': 'The password must be a text'
     }),
 
-    photo: Joi.string().required(),
+    photo: joi.string().required(),
 
 })
 

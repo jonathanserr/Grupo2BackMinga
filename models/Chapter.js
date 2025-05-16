@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
 
-const collection = 'chapters';
+let collection = 'chapters';
 
-const schema = new Schema({
+const schema = Schema({
     manga_id: { type: Schema.Types.ObjectId, ref: 'mangas', required: true },
     title: { type: String, required: true },
     cover_photo: { type: String, required: true },
@@ -12,5 +12,5 @@ const schema = new Schema({
     timestamps: true
 });
 
-const Chapter = model(collection, schema);
+let Chapter = model(collection, schema);
 export default Chapter;
