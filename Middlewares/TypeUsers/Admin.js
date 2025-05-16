@@ -1,6 +1,6 @@
 import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
-import User from "../models/User.js";
+import User from "../../models/User.js"
 
 export default passport.use(
     new Strategy(
@@ -10,7 +10,7 @@ export default passport.use(
         },
         async (jwt_payload,done) =>{
             try {
-                let user = await User.findOne({email: jwt_payload.email, online: true})
+                let user = await User.findOne({email: jwt_payload.email, online: true, role:3})
                 if (user) {
                     return done(null,user)
                 }else{

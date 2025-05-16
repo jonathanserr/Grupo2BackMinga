@@ -1,9 +1,15 @@
+import Company from "../../models/Company.js"
+
 const getCompanies = async (req,res,next)=>{
     try {
         
-        let respuesta = "getCompanies "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+       const getCompany = await Company.find()
+
+       res.status(200).json({
+        succes: true ,
+        response: getCompany,
+       })
+       
     } catch (error) {
         next(error)
     }
