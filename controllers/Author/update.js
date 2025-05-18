@@ -1,16 +1,26 @@
-import Author from '../../models/Author.js'
+import { response } from "express";
+import Author from "../../models/Author.js"
 
-const updateAuthor = async (req, res, next) => {
+const UpdateAuthor = async (req,res,next)=>{
     try {
-        let updatedAuthor = await Author.findByIdAndUpdate(
-            req.params.id,
-            req.body,
+        
+       const idauthor = req.params.idauthor
+
+       const data = req.body
+       
+         const updatedAuthor = await Author.findOneAndUpdate(
+            { _id: idauthor },
+            data,
             { new: true }
+        );
+
+        res.status(200).json(
+            {
+                succes:true, 
+                response: updatedAuthor
+            }
         )
-        res.status(200).json({
-            success: true,
-            author: updatedAuthor
-        })
+
     } catch (error) {
         next(error)
     }

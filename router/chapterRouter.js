@@ -8,7 +8,7 @@ import deleteChapter from "../controllers/Chapter/delete.js"
 const  routerChapter = Router()
 
 routerChapter.post("/create", createChapter)
-routerChapter.get("/read", getChapters)
+routerChapter.get("/read/:IdManga", getChapters)
 routerChapter.delete("/delete", deleteChapter)
 routerChapter.put("/update", updateChapter)
 

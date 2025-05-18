@@ -1,9 +1,16 @@
+import Manga from "../../models/Manga.js"
+import Category from "../../models/Category.js"
+
 const getManga = async (req,res,next)=>{
     try {
-        
-        let respuesta = "getManga "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
+    
+    const getMangas = await Manga.find().populate("category_id").populate("author_id")
+
+    return res.status(200).json({
+        succes: true, 
+        response: getMangas
+    })
+
     } catch (error) {
         next(error)
     }

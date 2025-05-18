@@ -1,3 +1,5 @@
+import Comment from "../../models/Comment.js"
+
 const createComment = async (req,res,next)=>{
     try {
         

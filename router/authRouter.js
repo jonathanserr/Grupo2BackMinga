@@ -7,7 +7,7 @@ import register from "../controllers/Auth/singup.js";
 import schemaRegister from "../Schemas/auth/register.js"
 import createHash from "../Middlewares/Auth/Register/createHash.js"
 import accountExist from "../Middlewares/Auth/Register/accountexists.js"
-import passport from "../Middlewares/passport.js";
+import passport from "../middlewares/passport.js";
 
 //Necesario para Login/SignIn
 import signin from "../controllers/Auth/signin.js";
