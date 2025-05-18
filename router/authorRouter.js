@@ -20,7 +20,7 @@ import cleanEmptyFields from "../middlewares/ValidateUpdate/dataUpdateEmpty.js"
 const routerAuth = Router()
 
 routerAuth.post("/create", passport.authenticate('jwt',{session:false}),updateRolUserAuthor, createAuthor)
-routerAuth.get("/read", admin.authenticate("jwt",{session:false} ),getAuthors)
+routerAuth.get("/read", admin.authenticate("jwt",{session:false} ),allAuthors)
 routerAuth.delete("/delete/:idauthor",deleteAuthor)
 routerAuth.put("/update/:idauthor", cleanEmptyFields ,updateAuthor)
 

@@ -1,4 +1,4 @@
-import { response } from "express";
+
 import Author from "../../models/Author.js"
 
 const UpdateAuthor = async (req,res,next)=>{
@@ -26,4 +26,4 @@ const UpdateAuthor = async (req,res,next)=>{
     }
 }
 
-export default updateAuthor
+export default UpdateAuthor

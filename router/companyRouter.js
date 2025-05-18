@@ -13,7 +13,7 @@ import cleanEmptyFields from "../middlewares/ValidateUpdate/dataUpdateEmpty.js"
 const  routerCompany = Router()
 
 routerCompany.post("/create", passport.authenticate('jwt',{session:false}), updateRolCompany ,createCompany)
-routerCompany.get("/read",admin.authenticate("jwt",{session:false} ),getCompanys)
+routerCompany.get("/read",admin.authenticate("jwt",{session:false} ),allCompanies)
 routerCompany.delete("/delete/:idCompany", deleteCompany)
 routerCompany.put("/update/:idCompany", cleanEmptyFields ,updateCompany)
 

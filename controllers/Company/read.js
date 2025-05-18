@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Company from '../../models/Company.js'
 
 const allCompanies = async (req, res, next) => {
@@ -8,20 +7,6 @@ const allCompanies = async (req, res, next) => {
             success: true,
             companies: companies
         })
-=======
-import Company from "../../models/Company.js"
-
-const getCompanies = async (req,res,next)=>{
-    try {
-        
-       const getCompany = await Company.find()
-
-       res.status(200).json({
-        succes: true ,
-        response: getCompany,
-       })
-       
->>>>>>> sebasburitica
     } catch (error) {
         next(error)
     }
