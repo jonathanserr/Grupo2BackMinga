@@ -4,12 +4,13 @@ import getCategorys from "../controllers/Category/read.js"
 import updateCategory from "../controllers/Category/update.js"
 import deleteCategory from "../controllers/Category/delete.js"
 
+import cleanEmptyFields  from "../middlewares/ValidateUpdate/dataUpdateEmpty.js"
 const  routerCategory = Router()
 
-routerCategory.post("/create", createCategory)
+routerCategory.post("/create/:idadmin", createCategory)
 routerCategory.get("/read", getCategorys)
-routerCategory.delete("/delete", deleteCategory)
-routerCategory.put("/update", updateCategory)
+routerCategory.delete("/delete/:idcategory", deleteCategory)
+routerCategory.put("/update/:idcategory", cleanEmptyFields , updateCategory)
 
 
 export default routerCategory

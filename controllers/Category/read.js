@@ -1,9 +1,17 @@
+import Category from "../../models/Category.js"
+
 const getCategory = async (req,res,next)=>{
     try {
+    
+        const dataCategory = await Category.find()
+
+        res.status(200).json(
+            {
+                succes: true, 
+                responde: dataCategory
+            }
+        )
         
-        let respuesta = "getCategory "
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
     } catch (error) {
         next(error)
     }
