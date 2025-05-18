@@ -6,7 +6,7 @@ import Company from "../../models/Company.js"
 const getManga = async (req, res, next) => {
     try {
 
-        const getMangas = await Manga.find().populate("category_id").populate("author_id")
+        const getMangas = await Manga.find().populate("category_id").populate("author_id").populate("company_id")
 
         return res.status(200).json({
             succes: true,
