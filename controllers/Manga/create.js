@@ -1,9 +1,8 @@
-import { response } from "express";
 import Manga from "../../models/Manga.js"
 const createManga = async (req,res,next)=>{
     try {
 
-         const { author_id, company_id } = req.query;
+        const { author_id, company_id } = req.query;
         const filterCreador = {};
 
         if (author_id) {
@@ -25,7 +24,7 @@ const createManga = async (req,res,next)=>{
         
         const newManga = await Manga.create(dataManga)
 
-        res.status(200).json(
+        res.status(201).json(
             {
                 succes:true, 
                 response: newManga
