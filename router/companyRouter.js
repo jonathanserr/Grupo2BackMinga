@@ -5,10 +5,10 @@ import updateCompany from "../controllers/Company/update.js"
 import deleteCompany from "../controllers/Company/delete.js"
 
 //PAssport 
-import passport from "../middlewares/passport.js";
-import updateRolCompany from "../middlewares/TypeUsers/Company.js";
-import admin from "../middlewares/TypeUsers/Admin.js";
-import cleanEmptyFields from "../middlewares/ValidateUpdate/dataUpdateEmpty.js"
+import passport from "../Middlewares/passport.js";
+import updateRolCompany from "../Middlewares/TypeUsers/Company.js";
+import admin from "../Middlewares/TypeUsers/Admin.js";
+import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
 
 const  routerCompany = Router()
 

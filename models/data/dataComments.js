@@ -31,7 +31,6 @@ const comments = [
     {
         chapter_id: "6824d2fd026521b6712c2af7", // visa
         author_id: "68221069b1ee15e4669d0c95", // Tomás Silencio
-        company_id: "6823939f2c79ac97a16fc499", // Eterno Ocaso Editorial
         message: "Una historia que da escalofríos. Excelente trabajo conjunto."
     }
 ];
