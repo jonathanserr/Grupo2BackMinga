@@ -19,7 +19,7 @@ const routerAuth = Router()
 
 routerAuth.post("/create", passport.authenticate('jwt',{session:false}),updateRolUserAuthor, createAuthor)
 routerAuth.get("/read", admin.authenticate("jwt",{session:false} ),getAuthors)
-routerAuth.delete("/delete", deleteAuthor)
+routerAuth.delete("/delete",deleteAuthor)
 routerAuth.put("/update", updateAuthor)
 
 export default routerAuth
