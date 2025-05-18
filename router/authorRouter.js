@@ -6,10 +6,10 @@ import deleteAuthor from "../controllers/Author/delete.js"
 
 
 //Proteger la ruta
-import passport from "../Middlewares/passport.js";
+import passport from "../middlewares/passport.js";
 
 //updateRolUserAuthor 
-import updateRolUserAuthor from "../Middlewares/TypeUsers/Author.js";
+import updateRolUserAuthor from "../Middlewares//TypeUsers/Author.js";
 
 //Rutas con userAdmin 
 import admin from "../Middlewares/TypeUsers/Admin.js";

@@ -2,6 +2,7 @@ import User from '../models/User.js';
 import passport from 'passport';
 import {Strategy, ExtractJwt} from 'passport-jwt';
 
+
 export default passport.use(
     new Strategy(
     {
@@ -10,7 +11,13 @@ export default passport.use(
     }, 
     async (jwtPayload, done) => {
         try {
+  console.log("validando usuariio");
+            
             let user = await User.findOne({email: jwtPayload.email, online: true})
+          console.log("validando usuariio",user);
+          
+            console.log(user);
+            
             if(user){
                 return done(null, user);
             }else{
