@@ -8,7 +8,7 @@ const schema = Joi.object({
 
   password: Joi.string()
     .required()
-    .min(8)
+    .min(6)
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
     .messages({
       "string.pattern.base":

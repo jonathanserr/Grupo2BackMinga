@@ -2,6 +2,7 @@ import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
 import User from "../models/User.js";
 
+
 export default passport.use(
     new Strategy(
         {
@@ -14,9 +15,11 @@ export default passport.use(
                 if (user) {
                     return done(null,user)
                 }else{
+                    console.log(done)
                     return done(null,null)
                 }
             } catch (error) {
+                console.log(error)
                 return done(error,null)
             }
         }

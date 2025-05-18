@@ -6,7 +6,7 @@ import deleteComment from "../controllers/Comment/delete.js"
 
 
 //
-import passport from "../middlewares/passport.js";
+import passport from "../Middlewares/passport.js";
 
 
 const  routerComment = Router()

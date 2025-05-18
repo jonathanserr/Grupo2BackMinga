@@ -4,7 +4,7 @@ import getCategorys from "../controllers/Category/read.js"
 import updateCategory from "../controllers/Category/update.js"
 import deleteCategory from "../controllers/Category/delete.js"
 
-import cleanEmptyFields  from "../middlewares/ValidateUpdate/dataUpdateEmpty.js"
+import cleanEmptyFields  from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
 const  routerCategory = Router()
 
 routerCategory.post("/create/:idadmin", createCategory)
