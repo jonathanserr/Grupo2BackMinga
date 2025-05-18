@@ -6,7 +6,7 @@ import deleteAuthor from "../controllers/Author/delete.js"
 
 
 //Proteger la ruta
-import passport from "../middlewares/passport.js";
+import passport from "../Middlewares/passport.js";
 
 //updateRolUserAuthor 
 import updateRolUserAuthor from "../Middlewares//TypeUsers/Author.js";
