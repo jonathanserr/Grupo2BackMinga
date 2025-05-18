@@ -2,7 +2,6 @@ import User from "../../models/User.js"
 
 export default async (req,res,next) => {
 
-    console.log("esta es la request" , req.user)
     try {
        const user =  await User.findOneAndUpdate(
             {email: req.user.email},

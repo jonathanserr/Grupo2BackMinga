@@ -1,12 +1,15 @@
-const DeleteAuthor = async (req,res,next)=>{
-    try {
-        
-        let respuesta = "Delete auhtores"
-        //Maqueta para luego implementar realmente
-        res.send(respuesta)
-    } catch (error) {
-        next(error)
-    }
-}
+import Author from "../../models/Author.js";
 
-export default DeleteAuthor
+const DeleteAuthor = async (req, res, next) => {
+  try {
+    const idAuthor = req.params.idAuthor;
+
+    const result = await Author.deleteOne({ _id: idAuthor });
+
+    res.status(200).json({ message: "Author successfully deleted" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export default DeleteAuthor;

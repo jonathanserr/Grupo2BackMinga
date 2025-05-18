@@ -8,6 +8,7 @@ export default async (req,res,next) =>{
                 id: account._id,
                 email: account.email,
                 password: account.password,
+                role: account.role
             }
 
             return next()

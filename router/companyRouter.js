@@ -8,13 +8,14 @@ import deleteCompany from "../controllers/Company/delete.js"
 import passport from "../middlewares/passport.js";
 import updateRolCompany from "../middlewares/TypeUsers/Company.js";
 import admin from "../middlewares/TypeUsers/Admin.js";
+import cleanEmptyFields from "../middlewares/ValidateUpdate/dataUpdateEmpty.js"
 
 const  routerCompany = Router()
 
 routerCompany.post("/create", passport.authenticate('jwt',{session:false}), updateRolCompany ,createCompany)
 routerCompany.get("/read",admin.authenticate("jwt",{session:false} ),getCompanys)
-routerCompany.delete("/delete", deleteCompany)
-routerCompany.put("/update", updateCompany)
+routerCompany.delete("/delete/:idCompany", deleteCompany)
+routerCompany.put("/update/:idCompany", cleanEmptyFields ,updateCompany)
 
 export default routerCompany
 
