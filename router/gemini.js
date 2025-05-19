@@ -24,6 +24,7 @@ router.post('/ask', async (req, res) => {
         mangas = await Manga.find({ $or: orConditions })
             .limit(5)
             .populate('author_id', 'name')
+            .populate('company_id', 'name')
             .populate('category_id', 'name');
     }
 
@@ -33,12 +34,14 @@ router.post('/ask', async (req, res) => {
         mangas = await Manga.aggregate([{ $sample: { size: 3 } }]);
         mangas = await Manga.populate(mangas, [
             { path: 'author_id', select: 'name' },
+            { path: 'company_id', select: 'name' },
             { path: 'category_id', select: 'name' }
         ]);
     }
 
+
     const contexto = mangas.map(m =>
-        `Título: ${m.title}\nAutor: ${m.author_id?.name || 'Desconocido'}\nCategoría: ${m.category_id?.name || 'Desconocida'}\nDescripción: ${m.description}`
+        `Título: ${m.title}\n${m.company_id ? "Company" : "Author" } : ${m.author_id?.name || m.company_id?.name || 'Desconocido'}\nCategoría: ${m.category_id?.name || 'Desconocida'}\nDescripción: ${m.description}`
     ).join('\n\n');
 
     const categories = await Category.find().limit(10);
@@ -72,7 +75,7 @@ router.post('/ask', async (req, res) => {
             `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
             { contents: [{ parts: [{ text: prompt }] }] }
         );
-        
+
         const reply = response.data?.candidates?.[0]?.content?.parts?.[0]?.text || 'No se pudo generar una respuesta.';
         res.json({ reply });
 
