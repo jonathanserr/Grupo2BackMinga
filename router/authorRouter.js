@@ -10,7 +10,6 @@ import passport from "../Middlewares/passport.js";
 
 //updateRolUserAuthor 
 import updateRolUserAuthor from "../Middlewares/TypeUsers/Author.js";
-import updateRolUserAuthor from "../Middlewares//TypeUsers/Author.js";
 
 //Rutas con userAdmin 
 import admin from "../Middlewares/TypeUsers/Admin.js";
