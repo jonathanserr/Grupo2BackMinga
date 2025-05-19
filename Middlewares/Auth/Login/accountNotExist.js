@@ -10,7 +10,6 @@ export default async (req,res,next) =>{
                 password: account.password,
                 role: account.role
             }
-
             return next()
         }
         return res.status(400).json({

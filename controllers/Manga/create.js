@@ -19,7 +19,8 @@ const createManga = async (req,res,next)=>{
             "title":dataBody.title,
             "cover_photo": dataBody.cover_photo,
             "description": dataBody.description,
-            "category_id": dataBody.category_id
+            "category_id": dataBody.category_id,
+            "reaction": dataBody.reaction
         }
         
         const newManga = await Manga.create(dataManga)
