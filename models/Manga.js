@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 const collection = 'mangas';
 
-const schema = new Schema({
+const schema = Schema({
     author_id: { type: Schema.Types.ObjectId, ref: 'authors', required: true },
     company_id: { type: Schema.Types.ObjectId, ref: 'companies' },
     title: { type: String, required: true },
@@ -15,5 +15,5 @@ const schema = new Schema({
 
 schema.index({ title: 'text', description: 'text' });
 
-const Manga = model(collection, schema);
+let Manga = model(collection, schema);
 export default Manga;
