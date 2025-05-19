@@ -13,11 +13,10 @@ import updateRolUserAuthor from "../Middlewares/TypeUsers/Author.js";
 
 //Rutas con userAdmin 
 import admin from "../Middlewares/TypeUsers/Admin.js";
-import admin from "../Middlewares/TypeUsers/Admin.js";
 
 //ValidarData par Update 
 import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
-import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
+
 
 const routerAuth = Router()
 
