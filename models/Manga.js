@@ -13,5 +13,7 @@ const schema = new Schema({
     timestamps: true
 });
 
+schema.index({ title: 'text', description: 'text' });
+
 const Manga = model(collection, schema);
 export default Manga;
