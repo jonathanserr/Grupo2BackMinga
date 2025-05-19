@@ -14,13 +14,14 @@ export default async (req,res,next) => {
             token: req.token,
             user: {
                 id: user._id,
-                name: user.name,
                 email: user.email,
-                lastname: user.lastname,
-                urlPhoto: user.urlPhoto,
-                country: user.country,
+                photo: user.photo,
+                role: user.role,
                 online: user.online
-              },
+            },
+
+
+
         })
     } catch (error) {
         next(error)
