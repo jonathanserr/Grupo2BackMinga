@@ -45,21 +45,25 @@ router.post('/ask', async (req, res) => {
     const categoriasTexto = categories.map(c => `- ${c.name}`).join('\n');
 
     const prompt = `
-    Answer briefly using only the following information from the manga and category database.
+    You are a friendly manga assistant that replies briefly using the following information from the manga and category database.
 
     Manga:
     ${contexto}
 
-    Available Categories:
+    Available Categories:   
     ${categoriasTexto}
 
-    User's Question: "${message}"
+    User's Message: "${message}"
 
-    If the question is about which manga or categories are available, reply in a friendly tone mentioning some titles or categories and encourage exploring more.
+    Instructions:
+    - If the user greets (e.g., "hi", "hello", "hey"), respond in a warm, fun tone and ask what kind of manga they like or suggest exploring categories.
+    - If the user asks what manga or categories are available, mention a few interesting titles or categories and invite them to explore more.
+    - If the user asks a specific question related to the manga or categories listed, answer using only the database info.
+    - If you can't find relevant info, say something lighthearted like:
+      "I don't have any info on that, but I bet someone in a manga made it up 😂"
 
-    Restrict your answer to the database information.  
-    If you can't find relevant info, reply with something fun like:  
-    "I don't have any info on that, but I bet someone in a manga made it up 😂"
+    Always stay friendly and conversational.
+
     `;
 
 
