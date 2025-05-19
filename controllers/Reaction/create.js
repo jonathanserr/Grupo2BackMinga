@@ -1,70 +1,74 @@
-import Reaction from "../../models/Reaction.js"
-import Manga from "../../models/Manga.js";
+import Reaction from "../../models/Reaction.js";
+import Manga    from "../../models/Manga.js";
+import Author   from "../../models/Author.js";
+import Company  from "../../models/Company.js";
 
-const getFieldByUserType = (type) => {
-  if (type === "author") return "author_id";
-  if (type === "company") return "company_id";
-  if (type === "user") return "user";
-  return null;
-};
-
-const getReactionName = (id) => {
-  const names = {
-    1: "like",
-    2: "dislike",
-    3: "awesome",
-    4: "iloveyou",
-  };
-  return names[id] || "unknown";
+const getFieldByUserType = (role) => {
+  switch (role) {
+    case 1: return "author_id";
+    case 2: return "company_id";
+    default: return "user";   // para usuarios “normales”
+  }
 };
 
 const createReaction = async (req, res, next) => {
   try {
-    const { idmanga } = req.params;
-    const { reaction } = req.body; // tipo de reacción (número)
-    const { quienreacciona, id } = req.query; // tipo de usuario e id
+    const { idmanga }    = req.params;
+    const { reaction }   = req.body;
+    const { role, _id: userId } = req.user;
 
-    const userField = getFieldByUserType(quienreacciona);
-    if (!userField) {
-      return res.status(400).json({ success: false, message: "Tipo de usuario inválido." });
+    // 1) Determinar el campo y la _id real según role
+    const userField = getFieldByUserType(role);
+    let realId;
+
+    if (role === 1) {
+      // Si es Author, buscamos el documento de Author cuyo campo `user` sea userId
+      const author = await Author.findOne({ user_id: userId });
+      if (!author) {
+        return res.status(404).json({ success: false, message: "Author not found" });
+      }
+      realId = author._id;
+    } else if (role === 2) {
+      // Si es Company, buscamos el documento de Company
+      const company = await Company.findOne({ user_id: userId });
+      if (!company) {
+        return res.status(404).json({ success: false, message: "Company not found" });
+      }
+      realId = company._id;
+    } else {
+      // Usuario normal
+      realId = userId;
     }
 
-    // Buscar si ya existe una reacción previa del mismo usuario al mismo manga
-    const existingReaction = await Reaction.findOne({
+    // 2) Comprobar si ya existe una reacción previa de este “realId”
+    const existing = await Reaction.findOne({
       manga_id: idmanga,
-      [userField]: id,
+      [userField]: realId,
     });
 
-    if (existingReaction) {
-      if (existingReaction.reaction === reaction) {
-        // ✅ Toggle: misma reacción → eliminarla
-        await Reaction.deleteOne({ _id: existingReaction._id });
-
-        // Decrementar el contador en el modelo de Manga
+    // 3) Toggle off / cambio / creación
+    if (existing) {
+      if (existing.reaction === reaction) {
+        // Toggle off
+        await existing.deleteOne();
         await Manga.updateOne(
           { _id: idmanga, "reaction.id": reaction },
           { $inc: { "reaction.$.count": -1 } }
         );
-
         return res.status(200).json({
           success: true,
-          message: "Reacción eliminada (toggle)",
+          message: "Reaction removed (toggle off)"
         });
       } else {
-        // 🔄 Cambio de tipo de reacción
-        const oldReaction = existingReaction.reaction;
+        // Cambio de reacción
+        const old = existing.reaction;
+        existing.reaction = reaction;
+        await existing.save();
 
-        // Actualizar la reacción en el modelo Reaction
-        existingReaction.reaction = reaction;
-        await existingReaction.save();
-
-        // Decrementar el contador de la anterior
         await Manga.updateOne(
-          { _id: idmanga, "reaction.id": oldReaction },
+          { _id: idmanga, "reaction.id": old },
           { $inc: { "reaction.$.count": -1 } }
         );
-
-        // Incrementar el contador de la nueva
         await Manga.updateOne(
           { _id: idmanga, "reaction.id": reaction },
           { $inc: { "reaction.$.count": 1 } }
@@ -72,21 +76,18 @@ const createReaction = async (req, res, next) => {
 
         return res.status(200).json({
           success: true,
-          message: "Reacción actualizada correctamente.",
+          message: "Reaction updated successfully"
         });
       }
     }
 
-    // 🆕 Si no existe reacción previa, crearla
-    const data = {
+    // 4) Crear nueva reacción
+    await Reaction.create({
       manga_id: idmanga,
-      [userField]: id,
+      [userField]: realId,
       reaction,
-    };
+    });
 
-    await Reaction.create(data);
-
-    // Incrementar el contador en Manga
     await Manga.updateOne(
       { _id: idmanga, "reaction.id": reaction },
       { $inc: { "reaction.$.count": 1 } }
@@ -94,7 +95,7 @@ const createReaction = async (req, res, next) => {
 
     return res.status(201).json({
       success: true,
-      message: "Reacción creada exitosamente.",
+      message: "Reaction created successfully"
     });
 
   } catch (error) {
