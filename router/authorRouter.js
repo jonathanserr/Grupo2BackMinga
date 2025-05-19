@@ -6,15 +6,18 @@ import deleteAuthor from "../controllers/Author/delete.js"
 
 
 //Proteger la ruta
-import passport from "../middlewares/passport.js";
+import passport from "../Middlewares/passport.js";
 
 //updateRolUserAuthor 
+import updateRolUserAuthor from "../Middlewares/TypeUsers/Author.js";
 import updateRolUserAuthor from "../Middlewares//TypeUsers/Author.js";
 
 //Rutas con userAdmin 
 import admin from "../Middlewares/TypeUsers/Admin.js";
+import admin from "../Middlewares/TypeUsers/Admin.js";
 
 //ValidarData par Update 
+import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
 import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
 
 const routerAuth = Router()

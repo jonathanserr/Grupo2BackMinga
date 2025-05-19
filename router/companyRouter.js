@@ -5,7 +5,7 @@ import updateCompany from "../controllers/Company/update.js"
 import deleteCompany from "../controllers/Company/delete.js"
 
 //PAssport 
-import passport from "../Middlewares/passport.js";
+import passport from "../middlewares/passport.js";
 import updateRolCompany from "../Middlewares/TypeUsers/Company.js";
 import admin from "../Middlewares/TypeUsers/Admin.js";
 import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"

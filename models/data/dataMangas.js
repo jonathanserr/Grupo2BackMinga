@@ -12,6 +12,12 @@ let mangas = [
         description: 'Arisu Ryouhei will be leaving high school soon, but he tries to avoid thinking about his future. One night, when he is with his partner Karube and his friend Chouta, they see some fireworks. After a blinding explosion, they wake up in another world, called Borderland. Here people are forced to participate in violent games, where the participants must fight to survive. Will Arisu, Karube and Chouta be able to survive in this dangerous new world and find their way back to their true world?',
         category_id: 'Shonen',
         author_id: 'Alejandro',
+        reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Welcome - part 1',
