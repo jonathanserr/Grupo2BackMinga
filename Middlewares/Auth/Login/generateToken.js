@@ -8,7 +8,6 @@ export default (req,res,next) => {
         process.env.SECRET,
         {expiresIn: "1h"}    
     )
-   
     req.token = token
     next()
 }

@@ -15,10 +15,13 @@ export default async (req,res,next) => {
             user: {
                 id: user._id,
                 email: user.email,
-                photo: user.urlPhoto,
+                photo: user.photo,
                 role: user.role,
                 online: user.online
-              },
+            },
+
+
+
         })
     } catch (error) {
         next(error)
