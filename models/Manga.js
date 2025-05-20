@@ -2,6 +2,13 @@ import { Schema, model } from 'mongoose';
 
 const collection = 'mangas';
 
+const defaultReactions = [
+  { name: "like", id: 1, count: 0 },
+  { name: "dislike", id: 2, count: 0 },
+  { name: "awesome", id: 3, count: 0 },
+  { name: "iloveyou", id: 4, count: 0 }
+];
+
 const schema = new Schema(
   {
     author_id: { type: Schema.Types.ObjectId, ref: "authors" },
@@ -14,13 +21,16 @@ const schema = new Schema(
       ref: "categories",
       required: true,
     },
-    reaction: [
+   reaction: {
+    type: [
       {
-        name: { type: String, required: true }, // "like", "dislike", etc.
-        id: { type: Number, required: true }, // 1, 2, 3, 4
-        count: { type: Number, default: 0 },
-      },
+        name: { type: String, required: true },
+        id: { type: Number, required: true },
+        count: { type: Number, default: 0 }
+      }
     ],
+    default: defaultReactions
+  }
   },
   {
     timestamps: true,

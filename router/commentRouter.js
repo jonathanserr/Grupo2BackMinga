@@ -8,15 +8,17 @@ import permisoDelete from "../Middlewares/Comment/PermisoDelete.js";
 //
 import passport from "../Middlewares/passport.js";
 import permisoUpdate from "../Middlewares/Comment/PermisoUpdate.js";
-
+import checkRole from "../Middlewares/checkRole.js";
+import schemaComment from "../Schemas/comments/commentSchema.js"
+import validator from "../Middlewares/validator.js";
 
 const  routerComment = Router()
 
-routerComment.post("/create/:idchapter", passport.authenticate('jwt',{session:false}),createComment)
+routerComment.post("/create/:idchapter", passport.authenticate('jwt',{session:false}), checkRole,validator(schemaComment),createComment)
 
 routerComment.get("/read", getComments)
-routerComment.delete("/delete/:idcomment", passport.authenticate('jwt',{session:false}) ,permisoDelete, deleteComment)
-routerComment.put("/update/:idcomment", passport.authenticate('jwt',{session:false}), permisoUpdate ,updateComment)
+routerComment.delete("/delete/:idcomment", passport.authenticate('jwt',{session:false}),checkRole ,permisoDelete, deleteComment)
+routerComment.put("/update/:idcomment", passport.authenticate('jwt',{session:false}), checkRole,permisoUpdate ,updateComment)
 
 
 export default routerComment

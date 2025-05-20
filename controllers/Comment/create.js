@@ -28,7 +28,7 @@ const createComment = async (req,res,next)=>{
             const data = {
                 "chapter_id": idChapter,
                 "company_id": company_id,
-                "message": dataComment
+                "message": message
             }
             const newComment = await Comment.create(data)
 

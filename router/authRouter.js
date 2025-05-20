@@ -24,7 +24,7 @@ const routerAuth = Router();
 
 routerAuth.post("/signin",validator(schemaLogin),accountNotExist,validatedPassword,generateToken,signin)
 
-routerAuth.post("/signout",passport.authenticate('jwt',{session:false}), singout)
+routerAuth.post("/signout", singout)
 
 routerAuth.post("/register", validator(schemaRegister),accountExist,createHash, register)
 

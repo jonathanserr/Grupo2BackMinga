@@ -7,13 +7,17 @@ import deleteCategory from "../controllers/Category/delete.js"
 
 import cleanEmptyFields  from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
 import passport from "../Middlewares/passport.js";
+import checkRole from "../Middlewares/checkRole.js";
+import schemaCategory from "../Schemas/categories/categorySchema.js"
+import validator from "../Middlewares/validator.js";
+
 
 const  routerCategory = Router()
 
-routerCategory.post("/create/:idadmin",  createCategory)
+routerCategory.post("/create/:idadmin", passport.authenticate('jwt',{session:false}),checkRole,validator(schemaCategory),createCategory)
 routerCategory.get("/read", getCategorys)
-routerCategory.delete("/delete/:idcategory", deleteCategory)
-routerCategory.put("/update/:idcategory", cleanEmptyFields , updateCategory)
+routerCategory.delete("/delete/:idcategory",passport.authenticate('jwt',{session:false}),checkRole, deleteCategory)
+routerCategory.put("/update/:idcategory", cleanEmptyFields ,passport.authenticate('jwt',{session:false}),checkRole, updateCategory)
 
 
 export default routerCategory

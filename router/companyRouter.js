@@ -5,17 +5,23 @@ import updateCompany from "../controllers/Company/update.js"
 import deleteCompany from "../controllers/Company/delete.js"
 
 //PAssport 
-import passport from "../middlewares/passport.js";
+import passport from "../Middlewares/passport.js";
 import updateRolCompany from "../Middlewares/TypeUsers/Company.js";
-import admin from "../Middlewares/TypeUsers/Admin.js";
+import adminRole from "../Middlewares/TypeUsers/Admin.js";
 import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
+import checkRole from "../Middlewares/checkRole.js";
+import schemaCompany from "../Schemas/companies/companySchema.js"
+import validator from "../Middlewares/validator.js";
 
 const  routerCompany = Router()
 
-routerCompany.post("/create", passport.authenticate('jwt',{session:false}), updateRolCompany ,createCompany)
-routerCompany.get("/read",admin.authenticate("jwt",{session:false} ),allCompanies)
-routerCompany.delete("/delete/:idCompany", deleteCompany)
-routerCompany.put("/update/:idCompany", cleanEmptyFields ,updateCompany)
+routerCompany.post("/create", passport.authenticate('jwt',{session:false}), validator(schemaCompany),updateRolCompany ,createCompany)
+
+routerCompany.get("/read",passport.authenticate("jwt",{session:false} ),adminRole,allCompanies)
+
+routerCompany.delete("/delete/:idCompany",passport.authenticate('jwt',{session:false}) , checkRole ,deleteCompany)
+
+routerCompany.put("/update/:idCompany", cleanEmptyFields ,passport.authenticate("jwt",{session:false} ),checkRole,updateCompany)
 
 export default routerCompany
 
