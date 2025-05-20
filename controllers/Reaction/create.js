@@ -15,30 +15,8 @@ const createReaction = async (req, res, next) => {
   try {
     const { idmanga }    = req.params;
     const { reaction }   = req.body;
-    const { role, _id: userId } = req.user;
-
-    // 1) Determinar el campo y la _id real según role
-    const userField = getFieldByUserType(role);
-    let realId;
-
-    if (role === 1) {
-      // Si es Author, buscamos el documento de Author cuyo campo `user` sea userId
-      const author = await Author.findOne({ user_id: userId });
-      if (!author) {
-        return res.status(404).json({ success: false, message: "Author not found" });
-      }
-      realId = author._id;
-    } else if (role === 2) {
-      // Si es Company, buscamos el documento de Company
-      const company = await Company.findOne({ user_id: userId });
-      if (!company) {
-        return res.status(404).json({ success: false, message: "Company not found" });
-      }
-      realId = company._id;
-    } else {
-      // Usuario normal
-      realId = userId;
-    }
+    const userField      = req.userField;  // "author_id" o "company_id"
+    const realId         = req.userEntityId; // id del autor o compañía
 
     // 2) Comprobar si ya existe una reacción previa de este “realId”
     const existing = await Reaction.findOne({
