@@ -22,15 +22,11 @@ const reactions = [
     reaction: 3 // 😮
   },
   {
-<<<<<<< HEAD
-    manga_id: "6827c11e203f3bbdaa3bf9b9", // Bleach
-    chapter_id: "6827c119203f3bbdaa3bf981", // 5 of spades - part 2
-    company_id: "6823939f2c79ac97a16fc498",
-=======
+
     manga_id: "6824d302026521b6712c2b35", // Bleach
     chapter_id: "6824d2fd026521b6712c2afd", // 5 of spades - part 2
     company_id: "6823939f2c79ac97a16fc498", 
->>>>>>> sebasburitica
+
     reaction: 4 // 😍
   },
   {

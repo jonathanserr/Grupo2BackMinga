@@ -10,3 +10,5 @@ Install for run:
 - npm install morgan
 
 rama develop
+
+  cambie bcrypt por la independencia compatible para 32 bits "bcryptjs": "^3.0.2",
