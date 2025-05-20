@@ -18,6 +18,25 @@ const getManga = async (req, res, next) => {
     }
 }
 
+const getMangaById = async (req, res, next) => {
+    try {
+        const { idmanga } = req.params;
+        const manga = await Manga.findById(idmanga)
+            .populate("category_id")
+            .populate("author_id")
+            .populate("company_id");
+        
+        
+            return res.status(200).json({
+                success: true,
+                response: manga
+            })
+    } catch (error) {
+        next(error)
+        
+    }
+}
+
 const getMangaByAuthororCompany = async (req, res, next)=>{
 
     try {
@@ -45,4 +64,4 @@ const getMangaByAuthororCompany = async (req, res, next)=>{
     }
 }
 
-export { getManga, getMangaByAuthororCompany }
+export { getManga, getMangaByAuthororCompany, getMangaById}
