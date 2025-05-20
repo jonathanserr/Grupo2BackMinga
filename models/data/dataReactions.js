@@ -4,58 +4,48 @@ import Reaction from "../Reaction.js";
 
 const reactions = [
   {
-    manga_id: "6824d2fc026521b6712c2aed", // Alice in Borderland
-    chapter_id: "6824d2fc026521b6712c2aef", // Welcome - part 1
-    author_id: "68221069b1ee15e4669d0c92",
+    manga_id: "6827c117203f3bbdaa3bf971", // Alice in Borderland
+    chapter_id: "6827c117203f3bbdaa3bf973", // Welcome - part 1
+    author_id: "6824d1aa07a41ce4d9efd982",
     reaction: 1 // 👍
   },
   {
-    manga_id: "6824d2fe026521b6712c2b07", // Shingeki no Kyojin
-    chapter_id: "6824d2ff026521b6712c2b0d", // Discharge night
-    company_id: "6823939f2c79ac97a16fc497",
+    manga_id: "6827c11a203f3bbdaa3bf98b", // Shingeki no Kyojin
+    chapter_id: "6827c11a203f3bbdaa3bf991", // Discharge night
+    company_id: "6824d1aa07a41ce4d9efd987",
     reaction: 2 // 👎
   },
   {
-    manga_id: "6824d300026521b6712c2b1d", // The promise neverland
-    author_id: "68221069b1ee15e4669d0c93",
+    manga_id: "6827c11c203f3bbdaa3bf9a1", // The promise neverland
+    chapter_id: "6827c11c203f3bbdaa3bf9a3", //Grace Field Home
+    author_id: "6824d1aa07a41ce4d9efd983",
     reaction: 3 // 😮
   },
   {
+<<<<<<< HEAD
+    manga_id: "6827c11e203f3bbdaa3bf9b9", // Bleach
+    chapter_id: "6827c119203f3bbdaa3bf981", // 5 of spades - part 2
+    company_id: "6823939f2c79ac97a16fc498",
+=======
     manga_id: "6824d302026521b6712c2b35", // Bleach
     chapter_id: "6824d2fd026521b6712c2afd", // 5 of spades - part 2
-    company_id: "6823939f2c79ac97a16fc498",
+    company_id: "6823939f2c79ac97a16fc498", 
+>>>>>>> sebasburitica
     reaction: 4 // 😍
   },
   {
-    manga_id: "6824d305026521b6712c2b65", // Gantz
-    chapter_id: "6824d2ff026521b6712c2b17", // Howl
-    author_id: "68221069b1ee15e4669d0c95",
-    company_id: "6823939f2c79ac97a16fc499",
+    manga_id: "6827c123203f3bbdaa3bf9e9", // Gantz
+    chapter_id: "6827c11b203f3bbdaa3bf99b", // Howl
+    author_id: "6824d1aa07a41ce4d9efd985",
     reaction: 1 // 👍
   },
   {
-    manga_id: "6824d312026521b6712c2c0f", // Citrus
-    chapter_id: "6824d2fe026521b6712c2b03", // Third day
-    author_id: "68221069b1ee15e4669d0c94",
+    manga_id: "6827c133203f3bbdaa3bfa93", // Citrus
+    chapter_id: "6827c119203f3bbdaa3bf987", // Third day
+    author_id: "6824d1aa07a41ce4d9efd984",
     reaction: 4 // 😍
   },
-  // Reacciones mínimas (solo campos requeridos)
-  {
-    manga_id: "6824d30f026521b6712c2be1", // World War Hulk
-    reaction: 2 // 👎
-  },
-  {
-    manga_id: "6824d30a026521b6712c2ba3", // Planet Hulk
-    reaction: 3 // 😮
-  },
-  {
-    manga_id: "6824d310026521b6712c2bef", // Pokemon
-    reaction: 1 // 👍
-  },
-  {
-    manga_id: "6824d315026521b6712c2c2b", // Ao Haru Ride
-    reaction: 4 // 😍
-  }
+  
 ];
 
 await Reaction.insertMany(reactions);

@@ -3,15 +3,10 @@ import Chapter from "../../models/Chapter.js";
 
 const deleteChapters = async (req,res, next)=>{
     try {
-        const idChapter = req.params.idchapter
-          await Chapter.deleteMany({ _id: idChapter });   
+        const idManga = req.params.idmanga
+          await Chapter.deleteMany({ manga_id: idManga });   
           
-          return res.status(200).json(
-            {
-                succes: true, 
-                response: "Chapter deleted Succesfuly"
-            }
-          )
+          next()
     } catch (error) {
         next(error)
     }

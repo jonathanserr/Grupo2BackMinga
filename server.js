@@ -4,10 +4,11 @@ import './config/database.js'
 import cors from 'cors';
 import morgan from 'morgan';
 import routerIndex from './router/index.js';
+import geminiRouter from './router/gemini.js';
 import error400 from './Middlewares/error400.js';
 import error404 from './Middlewares/error404.js';
 import error500 from './Middlewares/error500.js';
-
+import passport from 'passport';
 
 const server = express(); 
 
@@ -20,9 +21,12 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(cors());
 server.use(morgan('dev'));
+server.use(passport.initialize());
+
 
 //  configure routes:
 server.use('/api',routerIndex);
+server.use('/api/gemini', geminiRouter);
 
 
 server.use(error404)

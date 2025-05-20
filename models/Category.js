@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 const collection = 'categories';
 
-const schema = new Schema({
+const schema = Schema({
     name: { type: String, required: true },
     color: { type: String, required: true },
     hover: { type: String, required: true },
