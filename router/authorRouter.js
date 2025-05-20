@@ -3,8 +3,10 @@ import createAuthor from "../controllers/Author/create.js";
 import getAuthors from "../controllers/Author/read.js"
 import updateAuthor from "../controllers/Author/update.js"
 import deleteAuthor from "../controllers/Author/delete.js"
+import validator from "../Middlewares/validator.js";
 
-
+import schemaAuthor from "../Schemas/authors/authorSchema.js"
+import validateIfUserHave from "../Middlewares/Author/validateIfUserHaveAuthor.js";
 //Proteger la ruta
 import passport from "../Middlewares/passport.js";
 
@@ -19,10 +21,10 @@ import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
 
 const routerAuth = Router()
 
-routerAuth.post("/create", passport.authenticate('jwt',{session:false}),updateRolUserAuthor, createAuthor)
+routerAuth.post("/create", passport.authenticate('jwt',{session:false}),validator(schemaAuthor),validateIfUserHave,updateRolUserAuthor, createAuthor)
 routerAuth.get("/read", admin.authenticate("jwt",{session:false} ),getAuthors)
-routerAuth.delete("/delete/:idauthor",deleteAuthor)
-routerAuth.put("/update/:idauthor", cleanEmptyFields ,updateAuthor)
+routerAuth.delete("/delete/:idauthor", passport.authenticate('jwt',{session:false}),deleteAuthor)
+routerAuth.put("/update/:idauthor", passport.authenticate('jwt',{session:false}),cleanEmptyFields ,updateAuthor)
 
 export default routerAuth
 

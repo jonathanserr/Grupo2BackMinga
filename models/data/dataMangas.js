@@ -71,6 +71,12 @@ let mangas = [
         description: '100 years ago Titans appeared on earth. Soon the civilization was at the point of collapse because of these, the humans then built three giant walls to defend themselves. With the walls they were at peace but, after 100 years, the giants broke down the walls.',
         category_id: 'Shonen',
         author_id: 'Lucas',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Titans attack',
@@ -116,6 +122,12 @@ let mangas = [
         description: 'Emma, Norman and Ray are three orphans who live happily in the idyllic Grace Field House orphanage, waiting for the moment when they will be assigned a foster family. Everything changes when they accidentally discover the horrifying reality of their existence, so they decide to rebel and fight to the last consequences in a dark and terrifying adventure. But his time is running out...',
         category_id: 'Shonen',
         author_id: 'Lucas',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Grace Field Home',
@@ -165,6 +177,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Shonen',
         author_id: 'Eric',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Death & Strawberry',
@@ -214,6 +232,12 @@ let mangas = [
         description: 'This story revolves around a curse that affects class 3-3 of Yomiyama High School. It all begins when the protagonist, Kōichi Sakakibara, moves to this school and meets Mei Misaki, a girl who is ignored by her classmates due to a supposed curse that weighs on her. As Kōichi becomes more involved in the mystery surrounding class 3-3, he discovers that a student in the class died 26 years ago, and that every year someone in that class mysteriously dies since then. Kōichi and Mei try to uncover the truth behind the curse and end the wave of death while fighting the danger that lurks around them.',
         category_id: 'Seinen',
         author_id: 'Eric',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'I',
@@ -263,6 +287,12 @@ let mangas = [
         description: 'This is a sci-fi action story that follows a group of people who have been brought back to life by a mysterious sphere called Gantz and forced to participate in dangerous missions against strange and dangerous creatures. It all starts when the protagonist, Kei Kurono, is killed in an accident and is revived by Gantz along with other people who have recently died. As they fight to survive and complete Gantz´s missions, Kei and his companions discover that there is much more at stake than just their own lives.',
         category_id: 'Seinen',
         author_id: 'Lucas',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'I',
@@ -312,6 +342,12 @@ let mangas = [
         description: 'This story follows the life of Onodera Punpun, a high school boy who struggles with emotional issues and family problems as he tries to grow up and find his place in the world. Punpun is not your typical elementary school student. Despite the fact that he feels the same impulses as his peers, he begins to discover girls and sex, the family situation is not the most stable and he must face it as best he can... and in principle, that is visualizing himself as an amorphous bird in a strange environment.',
         category_id: 'Seinen',
         author_id: 'Lucas',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: '1',
@@ -361,6 +397,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Comics',
         author_id: 'Eric',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -390,6 +432,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Comics',
         author_id: 'Eric',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -439,6 +487,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Comics',
         author_id: 'Alejandro',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -484,6 +538,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Comics',
         author_id: 'Alejandro',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -517,6 +577,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Comics',
         author_id: 'Eric',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -546,6 +612,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Shonen',
         author_id: 'Lucas',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Red',
@@ -611,6 +683,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Shojo',
         author_id: 'Lucas',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: 'Chapter 1',
@@ -668,6 +746,12 @@ let mangas = [
         description: 'edit later',
         category_id: 'Shojo',
         author_id: 'Eric',
+         reaction: [
+                { "name": "like", "id": 1, "count": 0 },
+                { "name": "dislike", "id": 2, "count": 0 },
+                { "name": "awesome", "id": 3, "count": 0 },
+                { "name": "iloveyou", "id": 4, "count": 0 }
+            ],
         chapters: [
             {
                 title: '001',
