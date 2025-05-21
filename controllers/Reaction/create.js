@@ -1,7 +1,5 @@
 import Reaction from "../../models/Reaction.js";
 import Manga from "../../models/Manga.js";
-import Author from "../../models/Author.js";
-import Company from "../../models/Company.js";
 import Favorites from "../../models/Favorites.js";
 
 const createReaction = async (req, res, next) => {

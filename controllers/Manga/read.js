@@ -20,8 +20,10 @@ const getManga = async (req, res, next) => {
 
 const getMangaById = async (req, res, next) => {
     try {
-        const { idmanga } = req.params;
-        const manga = await Manga.findById(idmanga)
+        const { id } = req.params;
+        console.log(id);
+        
+        const manga = await Manga.findById(id)
             .populate("category_id")
             .populate("author_id")
             .populate("company_id");
