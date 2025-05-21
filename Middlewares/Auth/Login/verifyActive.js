@@ -43,6 +43,8 @@ const verifyActive = async (req,res,next)=>{
                 }
             )
         }
+    }else if( roleUser === 0){
+        next()
     }  
     } catch (error) {
         next(error)
