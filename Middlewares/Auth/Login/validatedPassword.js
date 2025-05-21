@@ -1,4 +1,4 @@
-import bcryptjs from "bcrypt"
+import bcryptjs from "bcryptjs"
 
 export default (req, res, next) => {
     let passwordBody = req.body.password

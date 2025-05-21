@@ -1,26 +1,19 @@
 import Manga from "../../models/Manga.js"
 const createManga = async (req,res,next)=>{
     try {
-
-        const { author_id, company_id } = req.query;
-        const filterCreador = {};
-
-        if (author_id) {
-            filterCreador.author_id = author_id;
-        } else if (company_id) {
-            filterCreador.company_id = company_id;
-        }
-
+            //Aca se obtiene si es un author o compañia
+          const typeUser = req.userField ;
+        //Aca el id sea de author o compañia
+        const idtype = req.userEntityId;
+     
         const dataBody = req.body
 
         const dataManga = {
-            "author_id": filterCreador.author_id,
-            "company_id": filterCreador.company_id,
+            [typeUser]: idtype,
             "title":dataBody.title,
             "cover_photo": dataBody.cover_photo,
             "description": dataBody.description,
             "category_id": dataBody.category_id,
-            "reaction": dataBody.reaction
         }
         
         const newManga = await Manga.create(dataManga)

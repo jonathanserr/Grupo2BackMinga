@@ -1,25 +1,19 @@
-import passport from "passport";
-import { Strategy, ExtractJwt } from "passport-jwt";
-import User from "../../models/User.js"
+const adminRole = async (req, res, next) => {
+  try {
+    const roleUser = req.user.role;
 
-export default passport.use(
-    new Strategy(
-        {
-            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-            secretOrKey: process.env.SECRET
-        },
-        async (jwt_payload,done) =>{
-            try {
-                let user = await User.findOne({email: jwt_payload.email, online: true, role:3})
-                if (user) {
-                    return done(null,user)
-                }else{
-                    return done(null,null)
-                }
-            } catch (error) {
-                return done(error,null)
-            }
-        }
-    )
-)
+    console.log(roleUser);
+    if (roleUser === 3) {
+      next();
+    } else {
+      return res.status(401).json({
+        success: false,
+        message: "You don't have permission to access this endpoint",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
 
+export default adminRole;

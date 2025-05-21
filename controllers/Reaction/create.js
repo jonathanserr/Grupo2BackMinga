@@ -1,38 +1,41 @@
 import Reaction from "../../models/Reaction.js";
-import Manga    from "../../models/Manga.js";
-import Author   from "../../models/Author.js";
-import Company  from "../../models/Company.js";
-
-const getFieldByUserType = (role) => {
-  switch (role) {
-    case 1: return "author_id";
-    case 2: return "company_id";
-    default: return "user";   // para usuarios “normales”
-  }
-};
+import Manga from "../../models/Manga.js";
+import Author from "../../models/Author.js";
+import Company from "../../models/Company.js";
+import Favorites from "../../models/Favorites.js";
 
 const createReaction = async (req, res, next) => {
   try {
-    const { idmanga }    = req.params;
-    const { reaction }   = req.body;
-    const userField      = req.userField;  // "author_id" o "company_id"
-    const realId         = req.userEntityId; // id del autor o compañía
+    const { idmanga } = req.params;
+    const { reaction } = req.body;
+    const userField = req.userField;         // "author_id" o "company_id"
+    const realId = req.userEntityId;         // ID del autor o compañía
 
-    // 2) Comprobar si ya existe una reacción previa de este “realId”
+    const filterFav = {
+      manga_id: idmanga,
+      [userField]: realId
+    };
+
     const existing = await Reaction.findOne({
       manga_id: idmanga,
       [userField]: realId,
     });
 
-    // 3) Toggle off / cambio / creación
     if (existing) {
       if (existing.reaction === reaction) {
         // Toggle off
         await existing.deleteOne();
+
         await Manga.updateOne(
           { _id: idmanga, "reaction.id": reaction },
           { $inc: { "reaction.$.count": -1 } }
         );
+
+        // Si era un like, eliminar de favoritos si existe
+        if (reaction === 1) {
+          await Favorites.deleteOne(filterFav);
+        }
+
         return res.status(200).json({
           success: true,
           message: "Reaction removed (toggle off)"
@@ -52,6 +55,19 @@ const createReaction = async (req, res, next) => {
           { $inc: { "reaction.$.count": 1 } }
         );
 
+        // Si el nuevo es like, agregar a favoritos (si no existe)
+        if (reaction === 1) {
+          const alreadyFavorite = await Favorites.findOne(filterFav);
+          if (!alreadyFavorite) {
+            await Favorites.create(filterFav);
+          }
+        } else {
+          // Si el anterior era like, eliminar de favoritos
+          if (old === 1) {
+            await Favorites.deleteOne(filterFav);
+          }
+        }
+
         return res.status(200).json({
           success: true,
           message: "Reaction updated successfully"
@@ -59,7 +75,7 @@ const createReaction = async (req, res, next) => {
       }
     }
 
-    // 4) Crear nueva reacción
+    // No existía reacción previa → crear nueva
     await Reaction.create({
       manga_id: idmanga,
       [userField]: realId,
@@ -70,6 +86,14 @@ const createReaction = async (req, res, next) => {
       { _id: idmanga, "reaction.id": reaction },
       { $inc: { "reaction.$.count": 1 } }
     );
+
+    // Si es un like, añadir a favoritos
+    if (reaction === 1) {
+      const alreadyFavorite = await Favorites.findOne(filterFav);
+      if (!alreadyFavorite) {
+        await Favorites.create(filterFav);
+      }
+    }
 
     return res.status(201).json({
       success: true,
