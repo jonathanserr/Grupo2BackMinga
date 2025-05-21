@@ -5,9 +5,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 import routerIndex from './router/index.js';
 import geminiRouter from './router/gemini.js';
-import error400 from './Middlewares/error400.js';
-import error404 from './Middlewares/error404.js';
-import error500 from './Middlewares/error500.js';
+import error400 from './middlewares/error400.js';
+import error404 from './middlewares/error404.js';
+import error500 from './middlewares/error500.js';
 import passport from 'passport';
 
 const server = express(); 
