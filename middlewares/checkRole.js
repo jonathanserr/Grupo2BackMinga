@@ -5,7 +5,7 @@ const checkRole = async (req,res, next) =>{
     try {
         const roleUser = req.user.role
 
-        if(roleUser === 1 || roleUser === 2){
+        if(roleUser === 1 || roleUser === 2 || roleUser === 0){
             next()
         }else{
              return res.status(401).json({

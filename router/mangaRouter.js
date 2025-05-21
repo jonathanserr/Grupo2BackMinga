@@ -17,6 +17,7 @@ const  routerManga = Router()
 
 routerManga.post("/create", passport.authenticate('jwt',{session:false}),checkRole,validator(schemaManga),determineUserEntity,createManga)
 routerManga.get("/read", getManga)
+routerManga.get("/read/:id", getMangaById)
 routerManga.get("/readEspecific", passport.authenticate('jwt',{session:false}),checkRole,determineUserEntity,getMangaByAuthororCompany )
 routerManga.delete("/delete/:idmanga",passport.authenticate('jwt',{session:false}),checkRole ,ClearChapters, deleteManga)
 routerManga.put("/update/:idmanga", passport.authenticate('jwt',{session:false}),checkRole,cleanEmptyFields ,updateManga)
