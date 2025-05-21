@@ -7,7 +7,7 @@ let schema = Schema({
     last_name: {type:String, required:false},
     city: {type:String, required:true},
     country: {type:String, required:true},
-    date: {type:Date, required:true},
+    date: {type:Date,},
     photo:{type:String,required:true},
     user_id:{type:Schema.Types.ObjectId,ref:'users',required:true},
     active:{type:Boolean,default:true},

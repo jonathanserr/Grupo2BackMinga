@@ -8,6 +8,8 @@ import routerComment from "./commentRouter.js"
 import routerCompany from "./companyRouter.js"
 import routerManga from "./mangaRouter.js"
 import routerReaction from "./reactionRouter.js"
+import routerFavorite from "./favoriteRouter.js";
+import adminRouter from "./adminRouter.js"
 
 const indexRouter = Router();
 
@@ -19,6 +21,8 @@ indexRouter.use("/comment" , routerComment)
 indexRouter.use("/company", routerCompany)
 indexRouter.use("/manga", routerManga)
 indexRouter.use("/reaction", routerReaction)
+indexRouter.use("/favorite", routerFavorite)
+indexRouter.use("/admin" , adminRouter);
 
 
 export default  indexRouter

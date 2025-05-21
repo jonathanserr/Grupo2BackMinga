@@ -13,7 +13,8 @@
     "dbCompanies": "node ./models/data/dataCompanies.js",
     "dbMangas": "node ./models/data/dataMangas.js",
     "dbComents": "node ./models/data/dataComments.js",
-    "dbReactions": "node ./models/data/dataReactions.js"
+    "dbReactions": "node ./models/data/dataReactions.js",
+    "dbFavorites": "node ./models/data/dataFavorites.js"
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,17 @@
   },
   "homepage": "https://github.com/jonathanserr/Grupo2BackMinga#readme",
   "dependencies": {
-    "bcrypt": "^6.0.0",
+
+    "axios": "^1.9.0",
+
+
+    "bcryptjs": "^3.0.2",
+
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "joi": "^17.13.3",
+    "joi-oid": "^1.1.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.14.1",
     "morgan": "^1.10.0",

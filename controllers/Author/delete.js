@@ -1,15 +1,15 @@
-import Author from "../../models/Author"
+import Author from "../../models/Author.js";
 
-const DeleteAuthor = async (req,res,next)=>{
-    try {
-        await Author.findByIdAndDelete(req.params.id)
-        res.status(200).json({
-            success: true,
-            message: "Author deleted successfully"
-        })
-    } catch (error) {
-        next(error)
-    }
-}
+const DeleteAuthor = async (req, res, next) => {
+  try {
+    const idAuthor = req.params.idAuthor;
 
-export default DeleteAuthor
+    const result = await Author.deleteOne({ _id: idAuthor });
+
+    res.status(200).json({ message: "Author successfully deleted" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export default DeleteAuthor;
