@@ -13,7 +13,6 @@ import passport from "../middlewares/passport.js";
 //updateRolUserAuthor 
 import updateRolUserAuthor from "../Middlewares/TypeUsers/Author.js";
 
-//Rutas con userAdmin 
 
 //ValidarData par Update 
 import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"

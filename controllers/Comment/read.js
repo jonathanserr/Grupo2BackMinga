@@ -5,7 +5,7 @@ import Author from "../../models/Author.js"
 
 const getComments = async (req,res,next)=>{
     try {
-        const getComments = await Comments.find().populate("chapter_id").populate("author_id")
+        const getComments = await Comments.find().populate("chapter_id").populate("author_id").populate("company_id")
         return res.status(200).json({
             succes:true,
             response: getComments
