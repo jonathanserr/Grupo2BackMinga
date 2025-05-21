@@ -4,9 +4,10 @@ import getReactions from "../controllers/Reaction/read.js"
 import updateReaction from "../controllers/Reaction/update.js"
 import deleteReaction from "../controllers/Reaction/delete.js"
 import passport from "../Middlewares/passport.js"
+import determineUserEntity from "../Middlewares/determineIdUser.js";
 const  routerReaction = Router()
 
-routerReaction.post("/create/:idmanga",passport.authenticate('jwt',{session:false}),createReaction)
+routerReaction.post("/create/:idmanga",passport.authenticate('jwt',{session:false}),determineUserEntity, createReaction)
 routerReaction.get("/read", getReactions)
 routerReaction.delete("/delete", deleteReaction)
 routerReaction.put("/update", updateReaction)
