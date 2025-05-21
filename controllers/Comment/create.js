@@ -7,7 +7,7 @@ const createComment = async (req,res,next)=>{
         const {message} = req.body
 
         if(role === 1){
-            const author_id = req.user.id
+            const author_id = req.userEntityId
 
             const data = {
                 "chapter_id": idChapter,
@@ -24,7 +24,7 @@ const createComment = async (req,res,next)=>{
                 }
             )
         }else if(role === 2){
-            const company_id = req.user.id
+            const company_id = req.userEntityId
             const data = {
                 "chapter_id": idChapter,
                 "company_id": company_id,

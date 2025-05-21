@@ -12,6 +12,6 @@ const routerFavorite = Router();
 routerFavorite.post("/create", createFavorites);
 routerFavorite.get("/read", getFavorites);
 routerFavorite.put("/update", updateFavorites);
-routerFavorite.delete("/delete", deleteFavorite);
+routerFavorite.delete("/delete/:idfavorito", deleteFavorite);
 
 export default routerFavorite;

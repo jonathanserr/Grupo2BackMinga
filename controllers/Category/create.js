@@ -2,7 +2,7 @@ import Category from "../../models/Category.js"
 
 const createCategory = async (req,res,next)=>{
     try {
-        const admindId = req.params.idadmin
+        const admindId = req.user.id
         const dataBody = req.body
 
         const dataCategory= {

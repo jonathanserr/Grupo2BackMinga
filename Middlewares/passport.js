@@ -11,22 +11,16 @@ export default passport.use(
     }, 
     async (jwtPayload, done) => {
         try {
-  console.log("validando usuariio");
-            
+ 
             let user = await User.findOne({email: jwtPayload.email, online: true})
-          console.log("validando usuariio",user);
-          
-            console.log(user);
             
             if(user){
                 return done(null, user);
             }else{
-                    console.log(done)
                 return done(null, null);
             }
 
         } catch (error) {
-                console.log(error)
             return done(error, false);
             
         }

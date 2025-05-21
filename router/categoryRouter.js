@@ -14,7 +14,7 @@ import validator from "../Middlewares/validator.js";
 
 const  routerCategory = Router()
 
-routerCategory.post("/create/:idadmin", passport.authenticate('jwt',{session:false}),checkRole,validator(schemaCategory),createCategory)
+routerCategory.post("/create", passport.authenticate('jwt',{session:false}),checkRole,validator(schemaCategory),createCategory)
 routerCategory.get("/read", getCategorys)
 routerCategory.delete("/delete/:idcategory",passport.authenticate('jwt',{session:false}),checkRole, deleteCategory)
 routerCategory.put("/update/:idcategory", cleanEmptyFields ,passport.authenticate('jwt',{session:false}),checkRole, updateCategory)

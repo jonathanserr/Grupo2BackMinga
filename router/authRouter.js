@@ -19,10 +19,11 @@ import validatorToken from "../Middlewares/Auth/Login/validateToken.js";
 
 //Necesario para SignOut/LogOut
 import singout from "../controllers/Auth/singout.js";
+import verifyActive from "../Middlewares/Auth/Login/verifyActive.js";
 
 const routerAuth = Router();
 
-routerAuth.post("/signin",validator(schemaLogin),accountNotExist,validatedPassword,generateToken,signin)
+routerAuth.post("/signin",validator(schemaLogin),accountNotExist,verifyActive,validatedPassword,generateToken,signin)
 
 routerAuth.post("/signout", singout)
 

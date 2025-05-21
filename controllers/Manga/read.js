@@ -41,16 +41,11 @@ const getMangaByAuthororCompany = async (req, res, next)=>{
 
     try {
 
-        const { authorId, companyId } = req.query;
-        const filter = {};
+        const typeUser = req.userField ;
 
-        if (authorId) {
-            filter.author_id = authorId;
-        } else if (companyId) {
-            filter.company_id = companyId;
-        }
+        const idtype = req.userEntityId;
 
-        const mangas = await Manga.find(filter).populate("author_id").populate("company_id")
+        const mangas = await Manga.find({[typeUser]: idtype}).populate("author_id").populate("company_id").populate("category_id")
 
         res.status(200).json(
             {

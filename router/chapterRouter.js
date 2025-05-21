@@ -14,6 +14,6 @@ const  routerChapter = Router()
 routerChapter.post("/create/:idmanga", cleanEmptyFields, passport.authenticate('jwt',{session:false}),checkRole,validator(schemaChapter),createChapter)
 routerChapter.get("/read/:IdManga", getChapters)
 routerChapter.delete("/delete/:idchapter", passport.authenticate('jwt',{session:false}),checkRole, deleteChapter)
-routerChapter.put("/update", passport.authenticate('jwt',{session:false}),checkRole, updateChapter)
+routerChapter.put("/update/:idchapter", passport.authenticate('jwt',{session:false}),checkRole, updateChapter)
 
 export default routerChapter

@@ -12,13 +12,14 @@ import checkRole from "../Middlewares/checkRole.js";
 import schemaComment from "../Schemas/comments/commentSchema.js"
 import validator from "../Middlewares/validator.js";
 
+import determineUserEntity from "../Middlewares/determineIdUser.js";
 const  routerComment = Router()
 
-routerComment.post("/create/:idchapter", passport.authenticate('jwt',{session:false}), checkRole,validator(schemaComment),createComment)
+routerComment.post("/create/:idchapter", passport.authenticate('jwt',{session:false}), checkRole,validator(schemaComment),determineUserEntity,createComment)
 
 routerComment.get("/read", getComments)
-routerComment.delete("/delete/:idcomment", passport.authenticate('jwt',{session:false}),checkRole ,permisoDelete, deleteComment)
-routerComment.put("/update/:idcomment", passport.authenticate('jwt',{session:false}), checkRole,permisoUpdate ,updateComment)
+routerComment.delete("/delete/:idcomment", passport.authenticate('jwt',{session:false}),checkRole ,determineUserEntity,permisoDelete, deleteComment)
+routerComment.put("/update/:idcomment", passport.authenticate('jwt',{session:false}), checkRole,determineUserEntity,permisoUpdate ,updateComment)
 
 
 export default routerComment

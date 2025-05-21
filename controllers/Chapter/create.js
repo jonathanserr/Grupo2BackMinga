@@ -6,7 +6,6 @@ const createChapter = async (req,res,next)=>{
         const idmanga = req.params.idmanga
         
         const dataBody = req.body
-        console.log(idmanga)
         const data = {
             "manga_id": idmanga,
             "title": dataBody.title,

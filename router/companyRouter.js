@@ -12,6 +12,7 @@ import cleanEmptyFields from "../Middlewares/ValidateUpdate/dataUpdateEmpty.js"
 import checkRole from "../Middlewares/checkRole.js";
 import schemaCompany from "../Schemas/companies/companySchema.js"
 import validator from "../Middlewares/validator.js";
+import updateRol from "../Middlewares/Company/updareRoltoEliminate.js"
 
 const  routerCompany = Router()
 
@@ -19,7 +20,7 @@ routerCompany.post("/create", passport.authenticate('jwt',{session:false}), vali
 
 routerCompany.get("/read",passport.authenticate("jwt",{session:false} ),adminRole,allCompanies)
 
-routerCompany.delete("/delete/:idCompany",passport.authenticate('jwt',{session:false}) , checkRole ,deleteCompany)
+routerCompany.delete("/delete/:idCompany",passport.authenticate('jwt',{session:false}) , checkRole ,updateRol,deleteCompany)
 
 routerCompany.put("/update/:idCompany", cleanEmptyFields ,passport.authenticate("jwt",{session:false} ),checkRole,updateCompany)
 

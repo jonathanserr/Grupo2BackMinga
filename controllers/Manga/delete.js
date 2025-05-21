@@ -6,7 +6,14 @@ const deleteManga = async (req,res,next)=>{
 
        //Este deleteManga tambien eliminara todos los capitulos relacionados con él,seria la logica correcta que al eliminar un manga se eliminen sus capitulos
 
-        await Manga.deleteOne({ _id: idManga });
+        const manga = await Manga.deleteOne({ _id: idManga });
+
+        if (manga.deletedCount === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Manga not found"
+            });
+        }
 
         res.status(200).json(
             {

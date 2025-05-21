@@ -11,6 +11,14 @@ const UpdateComment = async (req, res, next) => {
       { new: true }
     );
 
+      if (!updatedComment) {
+      return res.status(404).json({
+        success: false,
+        response: "Comment not found",
+      });
+    }
+
+
     res.status(200).json({
       succes: true,
       response: updatedComment

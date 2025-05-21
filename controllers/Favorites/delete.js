@@ -4,16 +4,16 @@ import Favorite from "../../models/Favorites.js";
 
 const deleteFavorite = async (req, res, next) => {
     try {
-        const { _id } = req.body;
+        const id = req.params.idfavorito;
 
-        if (!_id) {
+        if (!id) {
             return res.status(400).json({
                 success: false,
                 message: "Debes proporcionar el _id del favorito a eliminar"
             });
         }
 
-        const deleted = await Favorite.deleteOne({ _id });
+        const deleted = await Favorite.deleteOne({ _id: id });
 
         if (deleted.deletedCount === 0) {
             return res.status(404).json({
