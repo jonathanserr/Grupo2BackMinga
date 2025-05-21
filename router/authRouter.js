@@ -12,14 +12,14 @@ import passport from "../middlewares/passport.js";
 //Necesario para Login/SignIn
 import signin from "../controllers/Auth/signin.js";
 import schemaLogin from "../Schemas/auth/singin.js"
-import accountNotExist from "../Middlewares/Auth/Login/accountNotExist.js";
-import validatedPassword from "../Middlewares/Auth/Login/validatedPassword.js";
-import generateToken from "../Middlewares/Auth/Login/generateToken.js";
-import validatorToken from "../Middlewares/Auth/Login/validateToken.js";
+import accountNotExist from "../middlewares/Auth/Login/accountNotExist.js";
+import validatedPassword from "../middlewares/Auth/Login/validatedPassword.js";
+import generateToken from "../middlewares/Auth/Login/generateToken.js";
+import validatorToken from "../middlewares/Auth/Login/validateToken.js";
 
 //Necesario para SignOut/LogOut
 import singout from "../controllers/Auth/singout.js";
-import verifyActive from "../Middlewares/Auth/Login/verifyActive.js";
+import verifyActive from "../middlewares/Auth/Login/verifyActive.js";
 
 const routerAuth = Router();
 
